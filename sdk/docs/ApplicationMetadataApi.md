@@ -1,6 +1,6 @@
 # Finbourne.Configuration.Sdk.Api.ApplicationMetadataApi
 
-All URIs are relative to *https://fbn-ci.lusid.com/configuration*
+All URIs are relative to *https://fbn-prd.lusid.com/configuration*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -29,7 +29,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-ci.lusid.com/configuration";
+            config.BasePath = "https://fbn-prd.lusid.com/configuration";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
