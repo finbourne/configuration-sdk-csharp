@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "/tmp/build/b2708ad5/configuration-sdk-csharp-code/sdk/Finbourne.Configuration.Sdk/Finbourne.Configuration.Sdk.csproj": {}
+  },
+  "projects": {
+    "/tmp/build/b2708ad5/configuration-sdk-csharp-code/sdk/Finbourne.Configuration.Sdk/Finbourne.Configuration.Sdk.csproj": {
+      "version": "2.0.1-beta",
+      "restore": {
+        "projectUniqueName": "/tmp/build/b2708ad5/configuration-sdk-csharp-code/sdk/Finbourne.Configuration.Sdk/Finbourne.Configuration.Sdk.csproj",
+        "projectName": "Finbourne.Configuration.Sdk",
+        "projectPath": "/tmp/build/b2708ad5/configuration-sdk-csharp-code/sdk/Finbourne.Configuration.Sdk/Finbourne.Configuration.Sdk.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/tmp/build/b2708ad5/configuration-sdk-csharp-code/sdk/Finbourne.Configuration.Sdk/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/root/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "JsonSubTypes": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.3, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[110.2.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/root/.dotnet/sdk/6.0.417/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
