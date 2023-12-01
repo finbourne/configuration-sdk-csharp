@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace Finbourne.Configuration.Sdk.Extensions
 {
@@ -42,6 +43,7 @@ namespace Finbourne.Configuration.Sdk.Extensions
         /// <summary>
         /// Finbourne-configuration Api Url
         /// </summary>
+        [ConfigurationKeyName("finbourne-configurationUrl")]
         public string BaseUrl { get; set; }
 
         /// <summary>
