@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Client.Auth;
 
 namespace Finbourne.Configuration.Sdk.Client
