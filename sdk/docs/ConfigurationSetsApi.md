@@ -28,23 +28,34 @@ All URIs are relative to *https://fbn-prd.lusid.com/configuration*
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class AddConfigurationToSetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -55,13 +66,13 @@ namespace Example
             {
                 // [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
                 ConfigurationSet result = apiInstance.AddConfigurationToSet(type, scope, code, createConfigurationItem, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.AddConfigurationToSet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.AddConfigurationToSet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -76,15 +87,15 @@ try
 {
     // [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
     ApiResponse<ConfigurationSet> response = apiInstance.AddConfigurationToSetWithHttpInfo(type, scope, code, createConfigurationItem, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.AddConfigurationToSetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.AddConfigurationToSetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -102,10 +113,6 @@ catch (ApiException e)
 
 [**ConfigurationSet**](ConfigurationSet.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -120,7 +127,7 @@ catch (ApiException e)
 | **404** | No configuration set exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="checkaccesstokenexists"></a>
 # **CheckAccessTokenExists**
@@ -131,34 +138,45 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class CheckAccessTokenExistsExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
 
             try
             {
                 // [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
                 apiInstance.CheckAccessTokenExists();
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.CheckAccessTokenExists: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.CheckAccessTokenExists: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -176,9 +194,9 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.CheckAccessTokenExistsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.CheckAccessTokenExistsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -187,10 +205,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -205,7 +219,7 @@ void (empty response body)
 | **404** | The Personal Access Token does not exist |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createconfigurationset"></a>
 # **CreateConfigurationSet**
@@ -216,23 +230,34 @@ void (empty response body)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class CreateConfigurationSetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var createConfigurationSet = new CreateConfigurationSet(); // CreateConfigurationSet | The data to create a configuration set
             var userId = "userId_example";  // string? | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional) 
 
@@ -240,13 +265,13 @@ namespace Example
             {
                 // [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
                 ConfigurationSet result = apiInstance.CreateConfigurationSet(createConfigurationSet, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.CreateConfigurationSet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.CreateConfigurationSet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -261,15 +286,15 @@ try
 {
     // [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
     ApiResponse<ConfigurationSet> response = apiInstance.CreateConfigurationSetWithHttpInfo(createConfigurationSet, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.CreateConfigurationSetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.CreateConfigurationSetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -284,10 +309,6 @@ catch (ApiException e)
 
 [**ConfigurationSet**](ConfigurationSet.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -301,7 +322,7 @@ catch (ApiException e)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="deleteaccesstoken"></a>
 # **DeleteAccessToken**
@@ -312,34 +333,45 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class DeleteAccessTokenExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
 
             try
             {
                 // [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
                 apiInstance.DeleteAccessToken();
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.DeleteAccessToken: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.DeleteAccessToken: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -357,9 +389,9 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.DeleteAccessTokenWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.DeleteAccessTokenWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -368,10 +400,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -385,7 +413,7 @@ void (empty response body)
 | **204** | No Content |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="deleteconfigurationitem"></a>
 # **DeleteConfigurationItem**
@@ -396,23 +424,34 @@ void (empty response body)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class DeleteConfigurationItemExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -424,11 +463,11 @@ namespace Example
                 // [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
                 apiInstance.DeleteConfigurationItem(type, scope, code, key, userId);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.DeleteConfigurationItem: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.DeleteConfigurationItem: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -446,9 +485,9 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.DeleteConfigurationItemWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.DeleteConfigurationItemWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -466,10 +505,6 @@ catch (ApiException e)
 
 void (empty response body)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -484,7 +519,7 @@ void (empty response body)
 | **404** | No configuration item exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="deleteconfigurationset"></a>
 # **DeleteConfigurationSet**
@@ -495,23 +530,34 @@ void (empty response body)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class DeleteConfigurationSetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -522,11 +568,11 @@ namespace Example
                 // [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
                 apiInstance.DeleteConfigurationSet(type, scope, code, userId);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.DeleteConfigurationSet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.DeleteConfigurationSet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -544,9 +590,9 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.DeleteConfigurationSetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.DeleteConfigurationSetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -563,10 +609,6 @@ catch (ApiException e)
 
 void (empty response body)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -581,7 +623,7 @@ void (empty response body)
 | **404** | No configuration set exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="generateaccesstoken"></a>
 # **GenerateAccessToken**
@@ -592,36 +634,47 @@ void (empty response body)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GenerateAccessTokenExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var action = "action_example";  // string? | action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional) 
 
             try
             {
                 // [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
                 PersonalAccessToken result = apiInstance.GenerateAccessToken(action);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.GenerateAccessToken: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.GenerateAccessToken: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -636,15 +689,15 @@ try
 {
     // [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
     ApiResponse<PersonalAccessToken> response = apiInstance.GenerateAccessTokenWithHttpInfo(action);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.GenerateAccessTokenWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.GenerateAccessTokenWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -657,10 +710,6 @@ catch (ApiException e)
 ### Return type
 
 [**PersonalAccessToken**](PersonalAccessToken.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -675,7 +724,7 @@ catch (ApiException e)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getconfigurationitem"></a>
 # **GetConfigurationItem**
@@ -686,23 +735,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetConfigurationItemExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -714,13 +774,13 @@ namespace Example
             {
                 // [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
                 ConfigurationItem result = apiInstance.GetConfigurationItem(type, scope, code, key, reveal, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.GetConfigurationItem: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.GetConfigurationItem: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -735,15 +795,15 @@ try
 {
     // [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
     ApiResponse<ConfigurationItem> response = apiInstance.GetConfigurationItemWithHttpInfo(type, scope, code, key, reveal, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.GetConfigurationItemWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.GetConfigurationItemWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -762,10 +822,6 @@ catch (ApiException e)
 
 [**ConfigurationItem**](ConfigurationItem.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -780,7 +836,7 @@ catch (ApiException e)
 | **404** | No configuration item exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getconfigurationset"></a>
 # **GetConfigurationSet**
@@ -791,23 +847,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetConfigurationSetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -818,13 +885,13 @@ namespace Example
             {
                 // [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
                 ConfigurationSet result = apiInstance.GetConfigurationSet(type, scope, code, reveal, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.GetConfigurationSet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.GetConfigurationSet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -839,15 +906,15 @@ try
 {
     // [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
     ApiResponse<ConfigurationSet> response = apiInstance.GetConfigurationSetWithHttpInfo(type, scope, code, reveal, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.GetConfigurationSetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.GetConfigurationSetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -865,10 +932,6 @@ catch (ApiException e)
 
 [**ConfigurationSet**](ConfigurationSet.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -883,7 +946,7 @@ catch (ApiException e)
 | **404** | No configuration set exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getsystemconfigurationitems"></a>
 # **GetSystemConfigurationItems**
@@ -894,23 +957,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetSystemConfigurationItemsExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var code = "code_example";  // string | The code that identifies a system configuration set
             var key = "key_example";  // string | The key that identifies a system configuration item
             var reveal = true;  // bool? | Whether to reveal the secrets (optional) 
@@ -919,13 +993,13 @@ namespace Example
             {
                 // [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
                 ResourceListOfConfigurationItem result = apiInstance.GetSystemConfigurationItems(code, key, reveal);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.GetSystemConfigurationItems: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.GetSystemConfigurationItems: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -940,15 +1014,15 @@ try
 {
     // [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
     ApiResponse<ResourceListOfConfigurationItem> response = apiInstance.GetSystemConfigurationItemsWithHttpInfo(code, key, reveal);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.GetSystemConfigurationItemsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.GetSystemConfigurationItemsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -964,10 +1038,6 @@ catch (ApiException e)
 
 [**ResourceListOfConfigurationItem**](ResourceListOfConfigurationItem.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -982,7 +1052,7 @@ catch (ApiException e)
 | **404** | No system configuration item exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getsystemconfigurationsets"></a>
 # **GetSystemConfigurationSets**
@@ -993,23 +1063,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetSystemConfigurationSetsExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var code = "code_example";  // string | The code that identifies a system configuration set
             var reveal = true;  // bool? | Whether to reveal the secrets (optional) 
 
@@ -1017,13 +1098,13 @@ namespace Example
             {
                 // [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
                 ResourceListOfConfigurationSet result = apiInstance.GetSystemConfigurationSets(code, reveal);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.GetSystemConfigurationSets: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.GetSystemConfigurationSets: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1038,15 +1119,15 @@ try
 {
     // [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
     ApiResponse<ResourceListOfConfigurationSet> response = apiInstance.GetSystemConfigurationSetsWithHttpInfo(code, reveal);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.GetSystemConfigurationSetsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.GetSystemConfigurationSetsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1060,10 +1141,6 @@ catch (ApiException e)
 ### Return type
 
 [**ResourceListOfConfigurationSet**](ResourceListOfConfigurationSet.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1079,7 +1156,7 @@ catch (ApiException e)
 | **404** | No system configuration set exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="listconfigurationsets"></a>
 # **ListConfigurationSets**
@@ -1090,23 +1167,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class ListConfigurationSetsExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string? | Whether the configuration set is Personal or Shared (optional) 
             var userId = "userId_example";  // string? | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional) 
 
@@ -1114,13 +1202,13 @@ namespace Example
             {
                 // [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
                 ResourceListOfConfigurationSetSummary result = apiInstance.ListConfigurationSets(type, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.ListConfigurationSets: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.ListConfigurationSets: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1135,15 +1223,15 @@ try
 {
     // [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
     ApiResponse<ResourceListOfConfigurationSetSummary> response = apiInstance.ListConfigurationSetsWithHttpInfo(type, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.ListConfigurationSetsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.ListConfigurationSetsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1158,10 +1246,6 @@ catch (ApiException e)
 
 [**ResourceListOfConfigurationSetSummary**](ResourceListOfConfigurationSetSummary.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1175,7 +1259,7 @@ catch (ApiException e)
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="updateconfigurationitem"></a>
 # **UpdateConfigurationItem**
@@ -1186,23 +1270,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class UpdateConfigurationItemExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -1214,13 +1309,13 @@ namespace Example
             {
                 // [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item's value and/or description
                 ConfigurationItem result = apiInstance.UpdateConfigurationItem(type, scope, code, key, updateConfigurationItem, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.UpdateConfigurationItem: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.UpdateConfigurationItem: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1235,15 +1330,15 @@ try
 {
     // [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item's value and/or description
     ApiResponse<ConfigurationItem> response = apiInstance.UpdateConfigurationItemWithHttpInfo(type, scope, code, key, updateConfigurationItem, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.UpdateConfigurationItemWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.UpdateConfigurationItemWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1262,10 +1357,6 @@ catch (ApiException e)
 
 [**ConfigurationItem**](ConfigurationItem.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -1280,7 +1371,7 @@ catch (ApiException e)
 | **404** | No configuration item exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="updateconfigurationset"></a>
 # **UpdateConfigurationSet**
@@ -1291,23 +1382,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Configuration.Sdk.Api;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class UpdateConfigurationSetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/configuration";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ConfigurationSetsApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""configurationUrl"": ""https://<your-domain>.lusid.com/configuration"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
             var code = "code_example";  // string | The code that identifies a configuration set
@@ -1318,13 +1420,13 @@ namespace Example
             {
                 // [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
                 ConfigurationSet result = apiInstance.UpdateConfigurationSet(type, scope, code, updateConfigurationSet, userId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ConfigurationSetsApi.UpdateConfigurationSet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ConfigurationSetsApi.UpdateConfigurationSet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1339,15 +1441,15 @@ try
 {
     // [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
     ApiResponse<ConfigurationSet> response = apiInstance.UpdateConfigurationSetWithHttpInfo(type, scope, code, updateConfigurationSet, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ConfigurationSetsApi.UpdateConfigurationSetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ConfigurationSetsApi.UpdateConfigurationSetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1365,10 +1467,6 @@ catch (ApiException e)
 
 [**ConfigurationSet**](ConfigurationSet.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -1383,5 +1481,5 @@ catch (ApiException e)
 | **404** | No configuration set exists with the provided identifiers |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

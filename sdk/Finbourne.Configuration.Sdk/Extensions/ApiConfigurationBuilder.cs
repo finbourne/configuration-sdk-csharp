@@ -21,7 +21,7 @@ namespace Finbourne.Configuration.Sdk.Extensions
         private static readonly Dictionary<string, string> ConfigNamesToEnvVariables = new Dictionary<string, string>()
             {
                 { "TokenUrl", "FBN_TOKEN_URL" },
-                { "BaseUrl", "FBN_FINBOURNE-CONFIGURATION_API_URL" },
+                { "BaseUrl", "FBN_CONFIGURATION_URL" },
                 { "ClientId", "FBN_CLIENT_ID" },
                 { "ClientSecret", "FBN_CLIENT_SECRET" },
                 { "Username", "FBN_USERNAME" },
@@ -32,7 +32,7 @@ namespace Finbourne.Configuration.Sdk.Extensions
         private static readonly Dictionary<string, string> ConfigNamesToSecrets = new Dictionary<string, string>()
         {
             { "TokenUrl", "tokenUrl" },
-            { "BaseUrl", "finbourne_configurationUrl" },
+            { "BaseUrl", "configurationUrl" },
             { "ClientId", "clientId" },
             { "ClientSecret", "clientSecret" },
             { "Username", "username" },
@@ -87,10 +87,11 @@ namespace Finbourne.Configuration.Sdk.Extensions
             var apiConfig = new ApiConfiguration
             {
                 TokenUrl = Environment.GetEnvironmentVariable("FBN_TOKEN_URL") ?? Environment.GetEnvironmentVariable("fbn_token_url"),
-                BaseUrl = (Environment.GetEnvironmentVariable("FBN_FINBOURNE-CONFIGURATION_API_URL") ?? 
-                           Environment.GetEnvironmentVariable("fbn_finbourne-configuration_api_url")) ?? 
-                          (Environment.GetEnvironmentVariable("FBN_FINBOURNE_CONFIGURATION_API_URL") ?? 
-                           Environment.GetEnvironmentVariable("fbn_finbourne_configuration_api_url")),
+                BaseUrl = Environment.GetEnvironmentVariable("FBN_CONFIGURATION_URL") ??
+                          Environment.GetEnvironmentVariable("FBN_FINBOURNE-CONFIGURATION_API_URL") ?? 
+                          Environment.GetEnvironmentVariable("fbn_finbourne-configuration_api_url") ?? 
+                          Environment.GetEnvironmentVariable("FBN_FINBOURNE_CONFIGURATION_API_URL") ?? 
+                          Environment.GetEnvironmentVariable("fbn_finbourne_configuration_api_url"),
                 ClientId = Environment.GetEnvironmentVariable("FBN_CLIENT_ID") ?? Environment.GetEnvironmentVariable("fbn_client_id"),
                 ClientSecret = Environment.GetEnvironmentVariable("FBN_CLIENT_SECRET") ?? Environment.GetEnvironmentVariable("fbn_client_secret"),
                 Username = Environment.GetEnvironmentVariable("FBN_USERNAME") ?? Environment.GetEnvironmentVariable("fbn_username"),
@@ -142,7 +143,8 @@ namespace Finbourne.Configuration.Sdk.Extensions
         {
             if(string.IsNullOrWhiteSpace(parsedConfig.BaseUrl))
             {
-                parsedConfig.BaseUrl = parsedConfig.BackUpBaseUrl;
+                parsedConfig.BaseUrl = string.IsNullOrWhiteSpace(parsedConfig.SnakeCaseBaseUrl)
+                    ? parsedConfig.LowerCaseBaseUrl : parsedConfig.SnakeCaseBaseUrl;
             }
 
             return parsedConfig;

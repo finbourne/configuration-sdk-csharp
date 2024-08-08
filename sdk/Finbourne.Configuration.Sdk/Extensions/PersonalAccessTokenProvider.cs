@@ -22,7 +22,7 @@ namespace Finbourne.Configuration.Sdk.Extensions
         /// Implementation of a TokenProvider for use with a Personal Access Token - generated in LUSID web and used in a FBN_ACCESS_TOKEN env variable.
         /// </summary>
         /// <param name="personalAccessToken">the token to use</param>
-        /// <remarks>FBN_FINBOURNE-CONFIGURATION_API_URL env variable will also need to be defined in order to use this approach</remarks>
+        /// <remarks>FBN_CONFIGURATION_URL env variable will also need to be defined in order to use this approach</remarks>
         public PersonalAccessTokenProvider(string personalAccessToken)
         {
             if (string.IsNullOrWhiteSpace(personalAccessToken))
