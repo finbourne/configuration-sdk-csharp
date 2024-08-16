@@ -191,7 +191,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>ApiResponse of PersonalAccessToken</returns>
         ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
+        /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -205,7 +205,7 @@ namespace Finbourne.Configuration.Sdk.Api
         ConfigurationItem GetConfigurationItem(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
+        /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
         /// <remarks>
         /// 
@@ -221,7 +221,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>ApiResponse of ConfigurationItem</returns>
         ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -234,7 +234,7 @@ namespace Finbourne.Configuration.Sdk.Api
         ConfigurationSet GetConfigurationSet(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
         /// <remarks>
         /// 
@@ -273,7 +273,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfConfigurationItem</returns>
         ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -283,7 +283,7 @@ namespace Finbourne.Configuration.Sdk.Api
         ResourceListOfConfigurationSet GetSystemConfigurationSets(string code, bool? reveal = default(bool?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -579,7 +579,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>Task of ApiResponse (PersonalAccessToken)</returns>
         System.Threading.Tasks.Task<ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
+        /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
         /// <remarks>
         /// 
@@ -597,7 +597,7 @@ namespace Finbourne.Configuration.Sdk.Api
         System.Threading.Tasks.Task<ConfigurationItem> GetConfigurationItemAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
+        /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
         /// <remarks>
         /// 
@@ -614,7 +614,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
         /// <remarks>
         /// 
@@ -631,7 +631,7 @@ namespace Finbourne.Configuration.Sdk.Api
         System.Threading.Tasks.Task<ConfigurationSet> GetConfigurationSetAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
         /// <remarks>
         /// 
@@ -676,7 +676,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -690,7 +690,7 @@ namespace Finbourne.Configuration.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfConfigurationSet> GetSystemConfigurationSetsAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -2325,7 +2325,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set 
+        /// GetConfigurationItem: Get the specific configuration item within an existing set 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2343,7 +2343,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set 
+        /// GetConfigurationItem: Get the specific configuration item within an existing set 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2452,7 +2452,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set 
+        /// GetConfigurationItem: Get the specific configuration item within an existing set 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2471,7 +2471,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set 
+        /// GetConfigurationItem: Get the specific configuration item within an existing set 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2583,7 +2583,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2600,7 +2600,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2701,7 +2701,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -2719,7 +2719,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
+        /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Whether the configuration set is Personal or Shared</param>
@@ -3033,7 +3033,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3047,7 +3047,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3127,7 +3127,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3142,7 +3142,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
