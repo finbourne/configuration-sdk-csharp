@@ -41,7 +41,8 @@ namespace Finbourne.Configuration.Sdk.Model
         /// <param name="valueType">The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \&quot;5.5\&quot;)  - boolean: true/false  - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;)  - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;).</param>
         /// <param name="isSecret">Defines whether or not the value is a secret (required).</param>
         /// <param name="description">The description of the new configuration item.</param>
-        public CreateConfigurationItem(string key = default(string), string value = default(string), string valueType = default(string), bool isSecret = default(bool), string description = default(string))
+        /// <param name="blockReveal">A property to indicate if revealing the value is blocked..</param>
+        public CreateConfigurationItem(string key = default(string), string value = default(string), string valueType = default(string), bool isSecret = default(bool), string description = default(string), bool blockReveal = default(bool))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -58,6 +59,7 @@ namespace Finbourne.Configuration.Sdk.Model
             this.IsSecret = isSecret;
             this.ValueType = valueType;
             this.Description = description;
+            this.BlockReveal = blockReveal;
         }
 
         /// <summary>
@@ -96,6 +98,13 @@ namespace Finbourne.Configuration.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// A property to indicate if revealing the value is blocked.
+        /// </summary>
+        /// <value>A property to indicate if revealing the value is blocked.</value>
+        [DataMember(Name = "blockReveal", EmitDefaultValue = true)]
+        public bool BlockReveal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +117,7 @@ namespace Finbourne.Configuration.Sdk.Model
             sb.Append("  ValueType: ").Append(ValueType).Append("\n");
             sb.Append("  IsSecret: ").Append(IsSecret).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  BlockReveal: ").Append(BlockReveal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +176,10 @@ namespace Finbourne.Configuration.Sdk.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.BlockReveal == input.BlockReveal ||
+                    this.BlockReveal.Equals(input.BlockReveal)
                 );
         }
 
@@ -195,6 +209,7 @@ namespace Finbourne.Configuration.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.BlockReveal.GetHashCode();
                 return hashCode;
             }
         }

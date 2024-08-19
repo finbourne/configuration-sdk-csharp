@@ -45,8 +45,9 @@ namespace Finbourne.Configuration.Sdk.Model
         /// <param name="value">The value of the configuration item (required).</param>
         /// <param name="valueType">The type of the configuration item&#39;s value (required).</param>
         /// <param name="isSecret">Defines whether or not the value is a secret. (required).</param>
+        /// <param name="blockReveal">Defines whether the value is blocked with non-internal request. (required).</param>
         /// <param name="links">links.</param>
-        public ConfigurationItem(DateTimeOffset createdAt = default(DateTimeOffset), string createdBy = default(string), DateTimeOffset lastModifiedAt = default(DateTimeOffset), string lastModifiedBy = default(string), string description = default(string), string key = default(string), string value = default(string), string valueType = default(string), bool isSecret = default(bool), List<Link> links = default(List<Link>))
+        public ConfigurationItem(DateTimeOffset createdAt = default(DateTimeOffset), string createdBy = default(string), DateTimeOffset lastModifiedAt = default(DateTimeOffset), string lastModifiedBy = default(string), string description = default(string), string key = default(string), string value = default(string), string valueType = default(string), bool isSecret = default(bool), bool blockReveal = default(bool), List<Link> links = default(List<Link>))
         {
             this.CreatedAt = createdAt;
             // to ensure "createdBy" is required (not null)
@@ -81,6 +82,7 @@ namespace Finbourne.Configuration.Sdk.Model
             }
             this.ValueType = valueType;
             this.IsSecret = isSecret;
+            this.BlockReveal = blockReveal;
             this.Description = description;
             this.Links = links;
         }
@@ -164,6 +166,13 @@ namespace Finbourne.Configuration.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Defines whether the value is blocked with non-internal request.
+        /// </summary>
+        /// <value>Defines whether the value is blocked with non-internal request.</value>
+        [DataMember(Name = "blockReveal", IsRequired = true, EmitDefaultValue = true)]
+        public bool BlockReveal { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -187,6 +196,7 @@ namespace Finbourne.Configuration.Sdk.Model
             sb.Append("  ValueType: ").Append(ValueType).Append("\n");
             sb.Append("  IsSecret: ").Append(IsSecret).Append("\n");
             sb.Append("  Ref: ").Append(Ref).Append("\n");
+            sb.Append("  BlockReveal: ").Append(BlockReveal).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -273,6 +283,10 @@ namespace Finbourne.Configuration.Sdk.Model
                     this.Ref.Equals(input.Ref))
                 ) && 
                 (
+                    this.BlockReveal == input.BlockReveal ||
+                    this.BlockReveal.Equals(input.BlockReveal)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -326,6 +340,7 @@ namespace Finbourne.Configuration.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Ref.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.BlockReveal.GetHashCode();
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
