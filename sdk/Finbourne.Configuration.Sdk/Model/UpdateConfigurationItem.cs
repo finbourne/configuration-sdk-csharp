@@ -38,7 +38,8 @@ namespace Finbourne.Configuration.Sdk.Model
         /// </summary>
         /// <param name="value">The new value of the configuration item (required).</param>
         /// <param name="description">The new description of the configuration item.</param>
-        public UpdateConfigurationItem(string value = default(string), string description = default(string))
+        /// <param name="blockReveal">The requested new state of BlockReveal.</param>
+        public UpdateConfigurationItem(string value = default(string), string description = default(string), bool blockReveal = default(bool))
         {
             // to ensure "value" is required (not null)
             if (value == null)
@@ -47,6 +48,7 @@ namespace Finbourne.Configuration.Sdk.Model
             }
             this.Value = value;
             this.Description = description;
+            this.BlockReveal = blockReveal;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace Finbourne.Configuration.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// The requested new state of BlockReveal
+        /// </summary>
+        /// <value>The requested new state of BlockReveal</value>
+        [DataMember(Name = "blockReveal", EmitDefaultValue = true)]
+        public bool BlockReveal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Finbourne.Configuration.Sdk.Model
             sb.Append("class UpdateConfigurationItem {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  BlockReveal: ").Append(BlockReveal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,6 +127,10 @@ namespace Finbourne.Configuration.Sdk.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.BlockReveal == input.BlockReveal ||
+                    this.BlockReveal.Equals(input.BlockReveal)
                 );
         }
 
@@ -137,6 +151,7 @@ namespace Finbourne.Configuration.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.BlockReveal.GetHashCode();
                 return hashCode;
             }
         }
