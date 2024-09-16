@@ -55,6 +55,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -64,6 +72,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationSet result = apiInstance.AddConfigurationToSet(type, scope, code, createConfigurationItem, userId, opts: opts);
+
                 // [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
                 ConfigurationSet result = apiInstance.AddConfigurationToSet(type, scope, code, createConfigurationItem, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -165,10 +176,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // apiInstance.CheckAccessTokenExists(opts: opts);
+
                 // [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
                 apiInstance.CheckAccessTokenExists();
             }
@@ -257,12 +279,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var createConfigurationSet = new CreateConfigurationSet(); // CreateConfigurationSet | The data to create a configuration set
             var userId = "userId_example";  // string? | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationSet result = apiInstance.CreateConfigurationSet(createConfigurationSet, userId, opts: opts);
+
                 // [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
                 ConfigurationSet result = apiInstance.CreateConfigurationSet(createConfigurationSet, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -360,10 +393,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // apiInstance.DeleteAccessToken(opts: opts);
+
                 // [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
                 apiInstance.DeleteAccessToken();
             }
@@ -451,6 +495,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -460,6 +512,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // apiInstance.DeleteConfigurationItem(type, scope, code, key, userId, opts: opts);
+
                 // [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
                 apiInstance.DeleteConfigurationItem(type, scope, code, key, userId);
             }
@@ -557,6 +612,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -565,6 +628,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // apiInstance.DeleteConfigurationSet(type, scope, code, userId, opts: opts);
+
                 // [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
                 apiInstance.DeleteConfigurationSet(type, scope, code, userId);
             }
@@ -661,11 +727,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var action = "action_example";  // string? | action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PersonalAccessToken result = apiInstance.GenerateAccessToken(action, opts: opts);
+
                 // [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
                 PersonalAccessToken result = apiInstance.GenerateAccessToken(action);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -762,6 +839,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -772,6 +857,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationItem result = apiInstance.GetConfigurationItem(type, scope, code, key, reveal, userId, opts: opts);
+
                 // GetConfigurationItem: Get the specific configuration item within an existing set
                 ConfigurationItem result = apiInstance.GetConfigurationItem(type, scope, code, key, reveal, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -874,6 +962,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -883,6 +979,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationSet result = apiInstance.GetConfigurationSet(type, scope, code, reveal, userId, opts: opts);
+
                 // GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
                 ConfigurationSet result = apiInstance.GetConfigurationSet(type, scope, code, reveal, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -984,6 +1083,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var code = "code_example";  // string | The code that identifies a system configuration set
             var key = "key_example";  // string | The key that identifies a system configuration item
@@ -991,6 +1098,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfConfigurationItem result = apiInstance.GetSystemConfigurationItems(code, key, reveal, opts: opts);
+
                 // [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
                 ResourceListOfConfigurationItem result = apiInstance.GetSystemConfigurationItems(code, key, reveal);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1090,12 +1200,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var code = "code_example";  // string | The code that identifies a system configuration set
             var reveal = true;  // bool? | Whether to reveal the secrets (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfConfigurationSet result = apiInstance.GetSystemConfigurationSets(code, reveal, opts: opts);
+
                 // GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
                 ResourceListOfConfigurationSet result = apiInstance.GetSystemConfigurationSets(code, reveal);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1194,12 +1315,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string? | Whether the configuration set is Personal or Shared (optional) 
             var userId = "userId_example";  // string? | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfConfigurationSetSummary result = apiInstance.ListConfigurationSets(type, userId, opts: opts);
+
                 // [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
                 ResourceListOfConfigurationSetSummary result = apiInstance.ListConfigurationSets(type, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1297,6 +1429,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -1307,6 +1447,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationItem result = apiInstance.UpdateConfigurationItem(type, scope, code, key, updateConfigurationItem, userId, opts: opts);
+
                 // [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item's value and/or description
                 ConfigurationItem result = apiInstance.UpdateConfigurationItem(type, scope, code, key, updateConfigurationItem, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1409,6 +1552,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ConfigurationSetsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ConfigurationSetsApi>();
             var type = "type_example";  // string | Whether the configuration set is Personal or Shared
             var scope = "scope_example";  // string | The scope that identifies a configuration set
@@ -1418,6 +1569,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConfigurationSet result = apiInstance.UpdateConfigurationSet(type, scope, code, updateConfigurationSet, userId, opts: opts);
+
                 // [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
                 ConfigurationSet result = apiInstance.UpdateConfigurationSet(type, scope, code, updateConfigurationSet, userId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

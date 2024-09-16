@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Configuration.Sdk.Client;
+using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Client.Auth;
 using Finbourne.Configuration.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationItem">The data to create a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        ConfigurationSet AddConfigurationToSet(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0);
+        ConfigurationSet AddConfigurationToSet(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
@@ -56,15 +58,17 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationItem">The data to create a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> AddConfigurationToSetWithHttpInfo(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ConfigurationSet> AddConfigurationToSetWithHttpInfo(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        void CheckAccessTokenExists(int operationIndex = 0);
+        void CheckAccessTokenExists(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
@@ -74,8 +78,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CheckAccessTokenExistsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Object> CheckAccessTokenExistsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
         /// </summary>
@@ -83,8 +88,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationSet">The data to create a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        ConfigurationSet CreateConfigurationSet(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0);
+        ConfigurationSet CreateConfigurationSet(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
@@ -96,15 +102,17 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationSet">The data to create a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> CreateConfigurationSetWithHttpInfo(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ConfigurationSet> CreateConfigurationSetWithHttpInfo(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        void DeleteAccessToken(int operationIndex = 0);
+        void DeleteAccessToken(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
@@ -114,8 +122,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteAccessTokenWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Object> DeleteAccessTokenWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
         /// </summary>
@@ -126,8 +135,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        void DeleteConfigurationItem(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0);
+        void DeleteConfigurationItem(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
@@ -142,8 +152,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteConfigurationItemWithHttpInfo(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<Object> DeleteConfigurationItemWithHttpInfo(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
         /// </summary>
@@ -153,8 +164,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        void DeleteConfigurationSet(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0);
+        void DeleteConfigurationSet(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
@@ -168,16 +180,18 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteConfigurationSetWithHttpInfo(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<Object> DeleteConfigurationSetWithHttpInfo(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PersonalAccessToken</returns>
-        PersonalAccessToken GenerateAccessToken(string? action = default(string?), int operationIndex = 0);
+        PersonalAccessToken GenerateAccessToken(string? action = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
@@ -188,8 +202,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PersonalAccessToken</returns>
-        ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0);
+        ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
@@ -201,8 +216,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationItem</returns>
-        ConfigurationItem GetConfigurationItem(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
+        ConfigurationItem GetConfigurationItem(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationItem: Get the specific configuration item within an existing set
@@ -218,8 +234,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationItem</returns>
-        ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
@@ -230,8 +247,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        ConfigurationSet GetConfigurationSet(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
+        ConfigurationSet GetConfigurationSet(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
@@ -246,8 +264,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
         /// </summary>
@@ -256,8 +275,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a system configuration item</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConfigurationItem</returns>
-        ResourceListOfConfigurationItem GetSystemConfigurationItems(string code, string key, bool? reveal = default(bool?), int operationIndex = 0);
+        ResourceListOfConfigurationItem GetSystemConfigurationItems(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
@@ -270,8 +290,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a system configuration item</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationItem</returns>
-        ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0);
+        ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
@@ -279,8 +300,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a system configuration set</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConfigurationSet</returns>
-        ResourceListOfConfigurationSet GetSystemConfigurationSets(string code, bool? reveal = default(bool?), int operationIndex = 0);
+        ResourceListOfConfigurationSet GetSystemConfigurationSets(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
@@ -292,8 +314,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a system configuration set</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationSet</returns>
-        ApiResponse<ResourceListOfConfigurationSet> GetSystemConfigurationSetsWithHttpInfo(string code, bool? reveal = default(bool?), int operationIndex = 0);
+        ApiResponse<ResourceListOfConfigurationSet> GetSystemConfigurationSetsWithHttpInfo(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
         /// </summary>
@@ -301,8 +324,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="type">Whether the configuration set is Personal or Shared (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConfigurationSetSummary</returns>
-        ResourceListOfConfigurationSetSummary ListConfigurationSets(string? type = default(string?), string? userId = default(string?), int operationIndex = 0);
+        ResourceListOfConfigurationSetSummary ListConfigurationSets(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
@@ -314,8 +338,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="type">Whether the configuration set is Personal or Shared (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationSetSummary</returns>
-        ApiResponse<ResourceListOfConfigurationSetSummary> ListConfigurationSetsWithHttpInfo(string? type = default(string?), string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ResourceListOfConfigurationSetSummary> ListConfigurationSetsWithHttpInfo(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
         /// </summary>
@@ -327,8 +352,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationItem">The data to update a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationItem</returns>
-        ConfigurationItem UpdateConfigurationItem(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0);
+        ConfigurationItem UpdateConfigurationItem(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
@@ -344,8 +370,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationItem">The data to update a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationItem</returns>
-        ApiResponse<ConfigurationItem> UpdateConfigurationItemWithHttpInfo(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ConfigurationItem> UpdateConfigurationItemWithHttpInfo(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
         /// </summary>
@@ -356,8 +383,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationSet">The data to update a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        ConfigurationSet UpdateConfigurationSet(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0);
+        ConfigurationSet UpdateConfigurationSet(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
@@ -372,8 +400,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationSet">The data to update a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> UpdateConfigurationSetWithHttpInfo(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0);
+        ApiResponse<ConfigurationSet> UpdateConfigurationSetWithHttpInfo(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -397,8 +426,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        System.Threading.Tasks.Task<ConfigurationSet> AddConfigurationToSetAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationSet> AddConfigurationToSetAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
@@ -414,8 +444,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> AddConfigurationToSetWithHttpInfoAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> AddConfigurationToSetWithHttpInfoAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
         /// </summary>
@@ -425,8 +456,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CheckAccessTokenExistsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CheckAccessTokenExistsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
@@ -437,8 +469,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CheckAccessTokenExistsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CheckAccessTokenExistsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
         /// </summary>
@@ -450,8 +483,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        System.Threading.Tasks.Task<ConfigurationSet> CreateConfigurationSetAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationSet> CreateConfigurationSetAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
@@ -464,8 +498,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> CreateConfigurationSetWithHttpInfoAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> CreateConfigurationSetWithHttpInfoAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
         /// </summary>
@@ -475,8 +510,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteAccessTokenAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAccessTokenAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
@@ -487,8 +523,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAccessTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAccessTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
         /// </summary>
@@ -503,8 +540,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteConfigurationItemAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteConfigurationItemAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
@@ -520,8 +558,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
         /// </summary>
@@ -535,8 +574,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteConfigurationSetAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteConfigurationSetAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
@@ -551,8 +591,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteConfigurationSetWithHttpInfoAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteConfigurationSetWithHttpInfoAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
         /// </summary>
@@ -563,8 +604,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PersonalAccessToken</returns>
-        System.Threading.Tasks.Task<PersonalAccessToken> GenerateAccessTokenAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PersonalAccessToken> GenerateAccessTokenAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
@@ -576,8 +618,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PersonalAccessToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
@@ -593,8 +636,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationItem</returns>
-        System.Threading.Tasks.Task<ConfigurationItem> GetConfigurationItemAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationItem> GetConfigurationItemAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationItem: Get the specific configuration item within an existing set
@@ -611,8 +655,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
@@ -627,8 +672,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        System.Threading.Tasks.Task<ConfigurationSet> GetConfigurationSetAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationSet> GetConfigurationSetAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
@@ -644,8 +690,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
         /// </summary>
@@ -658,8 +705,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConfigurationItem</returns>
-        System.Threading.Tasks.Task<ResourceListOfConfigurationItem> GetSystemConfigurationItemsAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfConfigurationItem> GetSystemConfigurationItemsAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
@@ -673,8 +721,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
@@ -686,8 +735,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConfigurationSet</returns>
-        System.Threading.Tasks.Task<ResourceListOfConfigurationSet> GetSystemConfigurationSetsAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfConfigurationSet> GetSystemConfigurationSetsAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
@@ -700,8 +750,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationSet>> GetSystemConfigurationSetsWithHttpInfoAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationSet>> GetSystemConfigurationSetsWithHttpInfoAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
         /// </summary>
@@ -713,8 +764,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConfigurationSetSummary</returns>
-        System.Threading.Tasks.Task<ResourceListOfConfigurationSetSummary> ListConfigurationSetsAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfConfigurationSetSummary> ListConfigurationSetsAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
@@ -727,8 +779,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationSetSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationSetSummary>> ListConfigurationSetsWithHttpInfoAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationSetSummary>> ListConfigurationSetsWithHttpInfoAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
         /// </summary>
@@ -744,8 +797,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationItem</returns>
-        System.Threading.Tasks.Task<ConfigurationItem> UpdateConfigurationItemAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationItem> UpdateConfigurationItemAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
@@ -762,8 +816,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> UpdateConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> UpdateConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
         /// </summary>
@@ -778,8 +833,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        System.Threading.Tasks.Task<ConfigurationSet> UpdateConfigurationSetAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConfigurationSet> UpdateConfigurationSetAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
@@ -795,8 +851,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> UpdateConfigurationSetWithHttpInfoAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> UpdateConfigurationSetWithHttpInfoAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -829,9 +886,15 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns></returns>
         public ConfigurationSetsApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Configuration.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Configuration.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Configuration.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Configuration.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Configuration.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Configuration.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Configuration.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -924,10 +987,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationItem">The data to create a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        public ConfigurationSet AddConfigurationToSet(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0)
+        public ConfigurationSet AddConfigurationToSet(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = AddConfigurationToSetWithHttpInfo(type, scope, code, createConfigurationItem, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = AddConfigurationToSetWithHttpInfo(type, scope, code, createConfigurationItem, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -941,8 +1005,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationItem">The data to create a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> AddConfigurationToSetWithHttpInfo(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> AddConfigurationToSetWithHttpInfo(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -969,6 +1034,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1050,10 +1125,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        public async System.Threading.Tasks.Task<ConfigurationSet> AddConfigurationToSetAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationSet> AddConfigurationToSetAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await AddConfigurationToSetWithHttpInfoAsync(type, scope, code, createConfigurationItem, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await AddConfigurationToSetWithHttpInfoAsync(type, scope, code, createConfigurationItem, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1068,8 +1144,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> AddConfigurationToSetWithHttpInfoAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> AddConfigurationToSetWithHttpInfoAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -1097,6 +1174,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1173,10 +1260,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        public void CheckAccessTokenExists(int operationIndex = 0)
+        public void CheckAccessTokenExists(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            CheckAccessTokenExistsWithHttpInfo();
+            CheckAccessTokenExistsWithHttpInfo(opts: opts);
         }
 
         /// <summary>
@@ -1184,10 +1272,21 @@ namespace Finbourne.Configuration.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> CheckAccessTokenExistsWithHttpInfo(int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> CheckAccessTokenExistsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1250,10 +1349,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CheckAccessTokenExistsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CheckAccessTokenExistsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            await CheckAccessTokenExistsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            await CheckAccessTokenExistsWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1262,11 +1362,22 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> CheckAccessTokenExistsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> CheckAccessTokenExistsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1331,10 +1442,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationSet">The data to create a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        public ConfigurationSet CreateConfigurationSet(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0)
+        public ConfigurationSet CreateConfigurationSet(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = CreateConfigurationSetWithHttpInfo(createConfigurationSet, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = CreateConfigurationSetWithHttpInfo(createConfigurationSet, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1345,8 +1457,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="createConfigurationSet">The data to create a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> CreateConfigurationSetWithHttpInfo(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> CreateConfigurationSetWithHttpInfo(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createConfigurationSet' is set
             if (createConfigurationSet == null)
@@ -1355,6 +1468,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1430,10 +1553,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        public async System.Threading.Tasks.Task<ConfigurationSet> CreateConfigurationSetAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationSet> CreateConfigurationSetAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await CreateConfigurationSetWithHttpInfoAsync(createConfigurationSet, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await CreateConfigurationSetWithHttpInfoAsync(createConfigurationSet, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1445,8 +1569,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> CreateConfigurationSetWithHttpInfoAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> CreateConfigurationSetWithHttpInfoAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createConfigurationSet' is set
             if (createConfigurationSet == null)
@@ -1456,6 +1581,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1529,10 +1664,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        public void DeleteAccessToken(int operationIndex = 0)
+        public void DeleteAccessToken(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            DeleteAccessTokenWithHttpInfo();
+            DeleteAccessTokenWithHttpInfo(opts: opts);
         }
 
         /// <summary>
@@ -1540,10 +1676,21 @@ namespace Finbourne.Configuration.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteAccessTokenWithHttpInfo(int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteAccessTokenWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1606,10 +1753,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteAccessTokenAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteAccessTokenAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            await DeleteAccessTokenWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteAccessTokenWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1618,11 +1766,22 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteAccessTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteAccessTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1690,10 +1849,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        public void DeleteConfigurationItem(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0)
+        public void DeleteConfigurationItem(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            DeleteConfigurationItemWithHttpInfo(type, scope, code, key, userId);
+            DeleteConfigurationItemWithHttpInfo(type, scope, code, key, userId, opts: opts);
         }
 
         /// <summary>
@@ -1706,8 +1866,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteConfigurationItemWithHttpInfo(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteConfigurationItemWithHttpInfo(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -1734,6 +1895,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1811,10 +1982,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteConfigurationItemAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteConfigurationItemAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            await DeleteConfigurationItemWithHttpInfoAsync(type, scope, code, key, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteConfigurationItemWithHttpInfoAsync(type, scope, code, key, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1828,8 +2000,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -1857,6 +2030,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1933,10 +2116,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        public void DeleteConfigurationSet(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0)
+        public void DeleteConfigurationSet(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            DeleteConfigurationSetWithHttpInfo(type, scope, code, userId);
+            DeleteConfigurationSetWithHttpInfo(type, scope, code, userId, opts: opts);
         }
 
         /// <summary>
@@ -1948,8 +2132,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteConfigurationSetWithHttpInfo(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteConfigurationSetWithHttpInfo(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -1970,6 +2155,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2045,10 +2240,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteConfigurationSetAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteConfigurationSetAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            await DeleteConfigurationSetWithHttpInfoAsync(type, scope, code, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteConfigurationSetWithHttpInfoAsync(type, scope, code, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2061,8 +2257,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteConfigurationSetWithHttpInfoAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteConfigurationSetWithHttpInfoAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2084,6 +2281,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2156,10 +2363,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PersonalAccessToken</returns>
-        public PersonalAccessToken GenerateAccessToken(string? action = default(string?), int operationIndex = 0)
+        public PersonalAccessToken GenerateAccessToken(string? action = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> localVarResponse = GenerateAccessTokenWithHttpInfo(action);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> localVarResponse = GenerateAccessTokenWithHttpInfo(action, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2169,10 +2377,21 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PersonalAccessToken</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2242,10 +2461,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PersonalAccessToken</returns>
-        public async System.Threading.Tasks.Task<PersonalAccessToken> GenerateAccessTokenAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PersonalAccessToken> GenerateAccessTokenAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> localVarResponse = await GenerateAccessTokenWithHttpInfoAsync(action, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> localVarResponse = await GenerateAccessTokenWithHttpInfoAsync(action, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2256,11 +2476,22 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PersonalAccessToken)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2335,10 +2566,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationItem</returns>
-        public ConfigurationItem GetConfigurationItem(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0)
+        public ConfigurationItem GetConfigurationItem(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = GetConfigurationItemWithHttpInfo(type, scope, code, key, reveal, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = GetConfigurationItemWithHttpInfo(type, scope, code, key, reveal, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2353,8 +2585,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationItem</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2381,6 +2614,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2463,10 +2706,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationItem</returns>
-        public async System.Threading.Tasks.Task<ConfigurationItem> GetConfigurationItemAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationItem> GetConfigurationItemAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = await GetConfigurationItemWithHttpInfoAsync(type, scope, code, key, reveal, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = await GetConfigurationItemWithHttpInfoAsync(type, scope, code, key, reveal, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2482,8 +2726,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2511,6 +2756,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2592,10 +2847,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        public ConfigurationSet GetConfigurationSet(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0)
+        public ConfigurationSet GetConfigurationSet(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = GetConfigurationSetWithHttpInfo(type, scope, code, reveal, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = GetConfigurationSetWithHttpInfo(type, scope, code, reveal, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2609,8 +2865,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2631,6 +2888,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2711,10 +2978,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        public async System.Threading.Tasks.Task<ConfigurationSet> GetConfigurationSetAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationSet> GetConfigurationSetAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await GetConfigurationSetWithHttpInfoAsync(type, scope, code, reveal, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await GetConfigurationSetWithHttpInfoAsync(type, scope, code, reveal, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2729,8 +2997,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2752,6 +3021,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2830,10 +3109,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a system configuration item</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConfigurationItem</returns>
-        public ResourceListOfConfigurationItem GetSystemConfigurationItems(string code, string key, bool? reveal = default(bool?), int operationIndex = 0)
+        public ResourceListOfConfigurationItem GetSystemConfigurationItems(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> localVarResponse = GetSystemConfigurationItemsWithHttpInfo(code, key, reveal);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> localVarResponse = GetSystemConfigurationItemsWithHttpInfo(code, key, reveal, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2845,8 +3125,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="key">The key that identifies a system configuration item</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationItem</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -2861,6 +3142,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2934,10 +3225,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConfigurationItem</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfConfigurationItem> GetSystemConfigurationItemsAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfConfigurationItem> GetSystemConfigurationItemsAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> localVarResponse = await GetSystemConfigurationItemsWithHttpInfoAsync(code, key, reveal, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> localVarResponse = await GetSystemConfigurationItemsWithHttpInfoAsync(code, key, reveal, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2950,8 +3242,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationItem)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -2967,6 +3260,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3039,10 +3342,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a system configuration set</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConfigurationSet</returns>
-        public ResourceListOfConfigurationSet GetSystemConfigurationSets(string code, bool? reveal = default(bool?), int operationIndex = 0)
+        public ResourceListOfConfigurationSet GetSystemConfigurationSets(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> localVarResponse = GetSystemConfigurationSetsWithHttpInfo(code, reveal);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> localVarResponse = GetSystemConfigurationSetsWithHttpInfo(code, reveal, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3053,8 +3357,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="code">The code that identifies a system configuration set</param>
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationSet</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> GetSystemConfigurationSetsWithHttpInfo(string code, bool? reveal = default(bool?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> GetSystemConfigurationSetsWithHttpInfo(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -3063,6 +3368,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3134,10 +3449,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConfigurationSet</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfConfigurationSet> GetSystemConfigurationSetsAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfConfigurationSet> GetSystemConfigurationSetsAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> localVarResponse = await GetSystemConfigurationSetsWithHttpInfoAsync(code, reveal, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> localVarResponse = await GetSystemConfigurationSetsWithHttpInfoAsync(code, reveal, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3149,8 +3465,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="reveal">Whether to reveal the secrets (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationSet)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet>> GetSystemConfigurationSetsWithHttpInfoAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet>> GetSystemConfigurationSetsWithHttpInfoAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -3160,6 +3477,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3231,10 +3558,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="type">Whether the configuration set is Personal or Shared (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfConfigurationSetSummary</returns>
-        public ResourceListOfConfigurationSetSummary ListConfigurationSets(string? type = default(string?), string? userId = default(string?), int operationIndex = 0)
+        public ResourceListOfConfigurationSetSummary ListConfigurationSets(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> localVarResponse = ListConfigurationSetsWithHttpInfo(type, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> localVarResponse = ListConfigurationSetsWithHttpInfo(type, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3245,10 +3573,21 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="type">Whether the configuration set is Personal or Shared (optional)</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationSetSummary</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> ListConfigurationSetsWithHttpInfo(string? type = default(string?), string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> ListConfigurationSetsWithHttpInfo(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3323,10 +3662,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfConfigurationSetSummary</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfConfigurationSetSummary> ListConfigurationSetsAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfConfigurationSetSummary> ListConfigurationSetsAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> localVarResponse = await ListConfigurationSetsWithHttpInfoAsync(type, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> localVarResponse = await ListConfigurationSetsWithHttpInfoAsync(type, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3338,11 +3678,22 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationSetSummary)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary>> ListConfigurationSetsWithHttpInfoAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary>> ListConfigurationSetsWithHttpInfoAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3421,10 +3772,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationItem">The data to update a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationItem</returns>
-        public ConfigurationItem UpdateConfigurationItem(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0)
+        public ConfigurationItem UpdateConfigurationItem(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = UpdateConfigurationItemWithHttpInfo(type, scope, code, key, updateConfigurationItem, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = UpdateConfigurationItemWithHttpInfo(type, scope, code, key, updateConfigurationItem, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3439,8 +3791,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationItem">The data to update a configuration item</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationItem</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> UpdateConfigurationItemWithHttpInfo(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> UpdateConfigurationItemWithHttpInfo(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -3473,6 +3826,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3556,10 +3919,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationItem</returns>
-        public async System.Threading.Tasks.Task<ConfigurationItem> UpdateConfigurationItemAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationItem> UpdateConfigurationItemAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = await UpdateConfigurationItemWithHttpInfoAsync(type, scope, code, key, updateConfigurationItem, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> localVarResponse = await UpdateConfigurationItemWithHttpInfoAsync(type, scope, code, key, updateConfigurationItem, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3575,8 +3939,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem>> UpdateConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem>> UpdateConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -3610,6 +3975,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3692,10 +4067,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationSet">The data to update a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConfigurationSet</returns>
-        public ConfigurationSet UpdateConfigurationSet(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0)
+        public ConfigurationSet UpdateConfigurationSet(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = UpdateConfigurationSetWithHttpInfo(type, scope, code, updateConfigurationSet, userId);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = UpdateConfigurationSetWithHttpInfo(type, scope, code, updateConfigurationSet, userId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3709,8 +4085,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="updateConfigurationSet">The data to update a configuration set</param>
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> UpdateConfigurationSetWithHttpInfo(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0)
+        public Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> UpdateConfigurationSetWithHttpInfo(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -3737,6 +4114,16 @@ namespace Finbourne.Configuration.Sdk.Api
             }
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3818,10 +4205,11 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConfigurationSet</returns>
-        public async System.Threading.Tasks.Task<ConfigurationSet> UpdateConfigurationSetAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConfigurationSet> UpdateConfigurationSetAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await UpdateConfigurationSetWithHttpInfoAsync(type, scope, code, updateConfigurationSet, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> localVarResponse = await UpdateConfigurationSetWithHttpInfoAsync(type, scope, code, updateConfigurationSet, userId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3836,8 +4224,9 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="userId">Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> UpdateConfigurationSetWithHttpInfoAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> UpdateConfigurationSetWithHttpInfoAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -3865,6 +4254,16 @@ namespace Finbourne.Configuration.Sdk.Api
 
 
             Finbourne.Configuration.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Configuration.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
