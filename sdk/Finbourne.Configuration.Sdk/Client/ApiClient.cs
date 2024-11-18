@@ -103,6 +103,12 @@ namespace Finbourne.Configuration.Sdk.Client
         /// <returns>Object representation of the JSON string.</returns>
         internal object Deserialize(RestResponse response, Type type)
         {
+            // do not try to deserialize if this is an error response
+            if (response.ErrorException != null)
+            {
+                return GetDefaultValue(type);
+            }
+
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -152,6 +158,15 @@ namespace Finbourne.Configuration.Sdk.Client
             {
                 throw new ApiException(500, e.Message);
             }
+        }
+
+        private static object GetDefaultValue(Type type)
+        {
+            if (type.IsValueType && Nullable.GetUnderlyingType(type) == null)
+            {
+                return Activator.CreateInstance(type);
+            }
+            return null;
         }
 
         public ISerializer Serializer => this;
@@ -521,9 +536,10 @@ namespace Finbourne.Configuration.Sdk.Client
             T result = response.Data;
             string rawContent = response.Content;
 
+            var errorDescription = response.ErrorException?.ToString() ?? response.ErrorMessage;
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(StringComparer.OrdinalIgnoreCase), result, rawContent)
             {
-                ErrorText = response.ErrorMessage,
+                ErrorText = errorDescription,
                 Cookies = new List<Cookie>()
             };
 
@@ -617,39 +633,37 @@ namespace Finbourne.Configuration.Sdk.Client
                 response = client.WrappedExecute<T>(req);
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Finbourne.Configuration.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            if (response.IsSuccessful)
             {
-                try
+                // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+                if (typeof(Finbourne.Configuration.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    try
+                    {
+                        response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex.InnerException != null ? ex.InnerException : ex;
+                    }
                 }
-                catch (Exception ex)
+                else if (typeof(T).Name == "Stream") // for binary response
                 {
-                    throw ex.InnerException != null ? ex.InnerException : ex;
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
                 }
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-            else if (typeof(T).Name == "Byte[]") // for byte response
-            {
-                response.Data = (T)(object)response.RawBytes;
-            }
-            else if (typeof(T).Name == "String") // for string response
-            {
-                response.Data = (T)(object)response.Content;
+                else if (typeof(T).Name == "Byte[]") // for byte response
+                {
+                    response.Data = (T)(object)response.RawBytes;
+                }
+                else if (typeof(T).Name == "String") // for string response
+                {
+                    response.Data = (T)(object)response.Content;
+                }
             }
 
             InterceptResponse(req, response);
 
             var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
             if (response.Cookies != null && response.Cookies.Count > 0)
             {
                 if (result.Cookies == null) result.Cookies = new List<Cookie>();
@@ -737,28 +751,26 @@ namespace Finbourne.Configuration.Sdk.Client
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Finbourne.Configuration.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            if (response.IsSuccessful)
             {
-                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-            else if (typeof(T).Name == "Byte[]") // for byte response
-            {
-                response.Data = (T)(object)response.RawBytes;
+                // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
+                if (typeof(Finbourne.Configuration.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+                {
+                    response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                }
+                else if (typeof(T).Name == "Stream") // for binary response
+                {
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else if (typeof(T).Name == "Byte[]") // for byte response
+                {
+                    response.Data = (T)(object)response.RawBytes;
+                }
             }
 
             InterceptResponse(req, response);
 
             var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
             if (response.Cookies != null && response.Cookies.Count > 0)
             {
                 if (result.Cookies == null) result.Cookies = new List<Cookie>();
