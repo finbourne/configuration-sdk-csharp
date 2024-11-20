@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Configuration.Sdk.Client;
+using IApiAccessor = Finbourne.Configuration.Sdk.Client.IApiAccessor;
 using Finbourne.Configuration.Sdk.Extensions;
 using Finbourne.Configuration.Sdk.Client.Auth;
 using Finbourne.Configuration.Sdk.Model;
@@ -60,7 +60,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> AddConfigurationToSetWithHttpInfo(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> AddConfigurationToSetWithHttpInfo(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
         /// </summary>
@@ -80,7 +80,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CheckAccessTokenExistsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<Object> CheckAccessTokenExistsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
         /// </summary>
@@ -104,7 +104,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> CreateConfigurationSetWithHttpInfo(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> CreateConfigurationSetWithHttpInfo(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
         /// </summary>
@@ -124,7 +124,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteAccessTokenWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteAccessTokenWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
         /// </summary>
@@ -154,7 +154,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteConfigurationItemWithHttpInfo(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteConfigurationItemWithHttpInfo(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
         /// </summary>
@@ -182,7 +182,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteConfigurationSetWithHttpInfo(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<Object> DeleteConfigurationSetWithHttpInfo(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
         /// </summary>
@@ -204,7 +204,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PersonalAccessToken</returns>
-        ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken> GenerateAccessTokenWithHttpInfo(string? action = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
@@ -236,7 +236,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationItem</returns>
-        ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> GetConfigurationItemWithHttpInfo(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
@@ -266,7 +266,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
         /// </summary>
@@ -292,7 +292,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationItem</returns>
-        ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
@@ -316,7 +316,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationSet</returns>
-        ApiResponse<ResourceListOfConfigurationSet> GetSystemConfigurationSetsWithHttpInfo(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet> GetSystemConfigurationSetsWithHttpInfo(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
         /// </summary>
@@ -340,7 +340,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfConfigurationSetSummary</returns>
-        ApiResponse<ResourceListOfConfigurationSetSummary> ListConfigurationSetsWithHttpInfo(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary> ListConfigurationSetsWithHttpInfo(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
         /// </summary>
@@ -372,7 +372,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationItem</returns>
-        ApiResponse<ConfigurationItem> UpdateConfigurationItemWithHttpInfo(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem> UpdateConfigurationItemWithHttpInfo(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
         /// </summary>
@@ -402,7 +402,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConfigurationSet</returns>
-        ApiResponse<ConfigurationSet> UpdateConfigurationSetWithHttpInfo(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> UpdateConfigurationSetWithHttpInfo(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -446,7 +446,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> AddConfigurationToSetWithHttpInfoAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> AddConfigurationToSetWithHttpInfoAsync(string type, string scope, string code, CreateConfigurationItem createConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
         /// </summary>
@@ -471,7 +471,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CheckAccessTokenExistsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> CheckAccessTokenExistsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
         /// </summary>
@@ -500,7 +500,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> CreateConfigurationSetWithHttpInfoAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> CreateConfigurationSetWithHttpInfoAsync(CreateConfigurationSet createConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
         /// </summary>
@@ -525,7 +525,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAccessTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteAccessTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
         /// </summary>
@@ -560,7 +560,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
         /// </summary>
@@ -593,7 +593,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteConfigurationSetWithHttpInfoAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<Object>> DeleteConfigurationSetWithHttpInfoAsync(string type, string scope, string code, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
         /// </summary>
@@ -620,7 +620,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PersonalAccessToken)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<PersonalAccessToken>> GenerateAccessTokenWithHttpInfoAsync(string? action = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationItem: Get the specific configuration item within an existing set
         /// </summary>
@@ -657,7 +657,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem>> GetConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
         /// </summary>
@@ -692,7 +692,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
         /// </summary>
@@ -723,7 +723,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
         /// </summary>
@@ -752,7 +752,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationSet>> GetSystemConfigurationSetsWithHttpInfoAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSet>> GetSystemConfigurationSetsWithHttpInfoAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
         /// </summary>
@@ -781,7 +781,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationSetSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConfigurationSetSummary>> ListConfigurationSetsWithHttpInfoAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationSetSummary>> ListConfigurationSetsWithHttpInfoAsync(string? type = default(string?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
         /// </summary>
@@ -818,7 +818,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationItem>> UpdateConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationItem>> UpdateConfigurationItemWithHttpInfoAsync(string type, string scope, string code, string key, UpdateConfigurationItem updateConfigurationItem, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
         /// </summary>
@@ -853,7 +853,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigurationSet>> UpdateConfigurationSetWithHttpInfoAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> UpdateConfigurationSetWithHttpInfoAsync(string type, string scope, string code, UpdateConfigurationSet updateConfigurationSet, string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
