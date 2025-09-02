@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the new configuration item | [optional] 
 **BlockReveal** | **bool** | A property to indicate if revealing the value is blocked. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Configuration.Sdk.Model;
+using System;
 
+string key = "key";
+string value = "value";
+string valueType = "example valueType";
+bool isSecret = //"True";
+string description = "example description";
+bool blockReveal = //"True";
+
+CreateConfigurationItem createConfigurationItemInstance = new CreateConfigurationItem(
+    key: key,
+    value: value,
+    valueType: valueType,
+    isSecret: isSecret,
+    description: description,
+    blockReveal: blockReveal);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -13,5 +13,26 @@ Name | Type | Description | Notes
 **BlockReveal** | **bool** | Defines whether the value is blocked with non-internal request. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Configuration.Sdk.Model;
+using System;
 
+string key = "key";
+string value = "value";
+string valueType = "valueType";
+bool isSecret = //"True";
+string ref = "ref";
+bool blockReveal = //"True";
+List<Link> links = new List<Link>();
+
+ConfigurationItemSummary configurationItemSummaryInstance = new ConfigurationItemSummary(
+    key: key,
+    value: value,
+    valueType: valueType,
+    isSecret: isSecret,
+    ref: ref,
+    blockReveal: blockReveal,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

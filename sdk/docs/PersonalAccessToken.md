@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **Ref** | **string** | The reference to the Personal Access Token | [readonly] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Configuration.Sdk.Model;
+using System;
 
+string value = "value";
+string type = "type";
+string description = "description";
+string ref = "ref";
+List<Link> links = new List<Link>();
+
+PersonalAccessToken personalAccessTokenInstance = new PersonalAccessToken(
+    value: value,
+    type: type,
+    description: description,
+    ref: ref,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
