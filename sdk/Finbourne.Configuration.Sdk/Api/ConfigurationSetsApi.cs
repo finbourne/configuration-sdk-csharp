@@ -187,7 +187,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PersonalAccessToken</returns>
@@ -200,7 +200,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PersonalAccessToken</returns>
@@ -268,7 +268,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>ApiResponse of ConfigurationSet</returns>
         Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet> GetConfigurationSetWithHttpInfo(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -280,7 +280,7 @@ namespace Finbourne.Configuration.Sdk.Api
         ResourceListOfConfigurationItem GetSystemConfigurationItems(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -294,7 +294,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfConfigurationItem</returns>
         Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem> GetSystemConfigurationItemsWithHttpInfo(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -305,7 +305,7 @@ namespace Finbourne.Configuration.Sdk.Api
         ResourceListOfConfigurationSet GetSystemConfigurationSets(string code, bool? reveal = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -601,7 +601,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -615,7 +615,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -694,7 +694,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>Task of ApiResponse (ConfigurationSet)</returns>
         System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ConfigurationSet>> GetConfigurationSetWithHttpInfoAsync(string type, string scope, string code, bool? reveal = default(bool?), string? userId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -710,7 +710,7 @@ namespace Finbourne.Configuration.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfConfigurationItem> GetSystemConfigurationItemsAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -725,7 +725,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfConfigurationItem)</returns>
         System.Threading.Tasks.Task<Finbourne.Configuration.Sdk.Client.ApiResponse<ResourceListOfConfigurationItem>> GetSystemConfigurationItemsWithHttpInfoAsync(string code, string key, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -740,7 +740,7 @@ namespace Finbourne.Configuration.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfConfigurationSet> GetSystemConfigurationSetsAsync(string code, bool? reveal = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint
         /// </summary>
         /// <remarks>
         /// 
@@ -2361,7 +2361,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PersonalAccessToken</returns>
@@ -2375,7 +2375,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PersonalAccessToken</returns>
@@ -2458,7 +2458,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2473,7 +2473,7 @@ namespace Finbourne.Configuration.Sdk.Api
         /// [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
+        /// <param name="action">action&#x3D;regenerate &#x3D; Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action&#x3D;ensure &#x3D; If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action&#x3D;default &#x3D; If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3102,7 +3102,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint 
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3118,7 +3118,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint 
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3217,7 +3217,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint 
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3234,7 +3234,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint 
+        /// [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3336,7 +3336,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3351,7 +3351,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3442,7 +3442,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>
@@ -3458,7 +3458,7 @@ namespace Finbourne.Configuration.Sdk.Api
         }
 
         /// <summary>
-        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint 
+        /// GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint 
         /// </summary>
         /// <exception cref="Finbourne.Configuration.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code that identifies a system configuration set</param>

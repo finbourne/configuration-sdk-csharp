@@ -37,8 +37,8 @@ namespace Finbourne.Configuration.Sdk.Model
         /// Initializes a new instance of the <see cref="CreateConfigurationItem" /> class.
         /// </summary>
         /// <param name="key">The key of the new configuration item (required).</param>
-        /// <param name="value">The value of the new configuration item                The maximum size for secrets is 4KB and for text values is 2MB (required).</param>
-        /// <param name="valueType">The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \&quot;5.5\&quot;)  - boolean: true/false  - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;)  - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;).</param>
+        /// <param name="value">The value of the new configuration item              The maximum size for secrets is 4KB and for text values is 2MB (required).</param>
+        /// <param name="valueType">The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value. The validation for each type is as follows: - text: any value - number: double (e.g. \&quot;5.5\&quot;) - boolean: true/false - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;) - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;).</param>
         /// <param name="isSecret">Defines whether or not the value is a secret (required).</param>
         /// <param name="description">The description of the new configuration item.</param>
         /// <param name="blockReveal">A property to indicate if revealing the value is blocked..</param>
@@ -70,16 +70,16 @@ namespace Finbourne.Configuration.Sdk.Model
         public string Key { get; set; }
 
         /// <summary>
-        /// The value of the new configuration item                The maximum size for secrets is 4KB and for text values is 2MB
+        /// The value of the new configuration item              The maximum size for secrets is 4KB and for text values is 2MB
         /// </summary>
-        /// <value>The value of the new configuration item                The maximum size for secrets is 4KB and for text values is 2MB</value>
+        /// <value>The value of the new configuration item              The maximum size for secrets is 4KB and for text values is 2MB</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
-        /// The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \&quot;5.5\&quot;)  - boolean: true/false  - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;)  - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;)
+        /// The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value. The validation for each type is as follows: - text: any value - number: double (e.g. \&quot;5.5\&quot;) - boolean: true/false - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;) - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;)
         /// </summary>
-        /// <value>The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \&quot;5.5\&quot;)  - boolean: true/false  - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;)  - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;)</value>
+        /// <value>The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value. The validation for each type is as follows: - text: any value - number: double (e.g. \&quot;5.5\&quot;) - boolean: true/false - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;) - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;)</value>
         [DataMember(Name = "valueType", EmitDefaultValue = true)]
         public string ValueType { get; set; }
 
