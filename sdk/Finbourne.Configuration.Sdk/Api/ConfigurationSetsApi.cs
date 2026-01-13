@@ -1076,6 +1076,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             localVarRequestOptions.Data = createConfigurationItem;
@@ -1507,6 +1508,7 @@ namespace Finbourne.Configuration.Sdk.Api
 
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             localVarRequestOptions.Data = createConfigurationSet;
@@ -1934,6 +1936,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("key", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(key)); // path parameter
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
@@ -2193,6 +2196,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
@@ -2417,6 +2421,7 @@ namespace Finbourne.Configuration.Sdk.Api
 
             if (action != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "action", action));
             }
 
@@ -2653,10 +2658,12 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("key", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(key)); // path parameter
             if (reveal != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "reveal", reveal));
             }
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
@@ -2926,10 +2933,12 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (reveal != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "reveal", reveal));
             }
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
@@ -3179,6 +3188,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("key", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(key)); // path parameter
             if (reveal != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "reveal", reveal));
             }
 
@@ -3404,6 +3414,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (reveal != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "reveal", reveal));
             }
 
@@ -3613,10 +3624,12 @@ namespace Finbourne.Configuration.Sdk.Api
 
             if (type != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
@@ -3869,6 +3882,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("key", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(key)); // path parameter
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             localVarRequestOptions.Data = updateConfigurationItem;
@@ -4156,6 +4170,7 @@ namespace Finbourne.Configuration.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (userId != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Configuration.Sdk.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
             localVarRequestOptions.Data = updateConfigurationSet;
